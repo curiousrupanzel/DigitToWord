@@ -1,0 +1,42 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "digitToWord": {
+      "projectType": "library",
+      "root": "projects/digit-to-word",
+      "sourceRoot": "projects/digit-to-word/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/digit-to-word/tsconfig.lib.json",
+            "project": "projects/digit-to-word/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/digit-to-word/src/test.ts",
+            "tsConfig": "projects/digit-to-word/tsconfig.spec.json",
+            "karmaConfig": "projects/digit-to-word/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/digit-to-word/tsconfig.lib.json",
+              "projects/digit-to-word/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }},
+  "defaultProject": "digitToWord"
+}
